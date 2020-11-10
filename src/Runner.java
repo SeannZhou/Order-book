@@ -97,14 +97,17 @@ public class Runner {
                 System.out.println(bboEntry);
                 bboWriter.write(bboEntry);
             }
+
+            if (csvReader != null)
+                csvReader.close();
+            if (tradeWriter != null)
+                tradeWriter.close();
+            if (bboWriter != null)
+                bboWriter.close();
         } catch (Exception e) {
             System.out.println("Error in reading/writing csv!");
             System.out.println(e);
             e.printStackTrace();
-        } finally {
-            csvReader.close();
-            tradeWriter.close();
-            bboWriter.close();
         }
     }
 }
